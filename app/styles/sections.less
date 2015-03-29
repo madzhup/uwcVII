@@ -1,3 +1,31 @@
 .page{
   height: 100%;
 }
+.page__container{
+  position: relative;
+  max-width: 1170px;
+  height: 100%;
+  margin: auto;
+  padding-left: 15px;
+  padding-right: 15px;
+  white-space: nowrap;
+  z-index: 1;
+
+  &:after{
+    content: '';
+    display: inline-block;
+    vertical-align: middle;
+    width: 0;
+    height: 100%;
+  }
+}
+.page__content{
+  display: inline-block;
+  vertical-align: middle;
+  white-space: normal;
+}
+.page__head{
+  font-size: 48px;
+  font-weight: 900;
+  text-transform: uppercase;
+}

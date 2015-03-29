@@ -6,6 +6,28 @@ var $ = require('gulp-load-plugins')();
 var browserSync = require('browser-sync');
 var reload = browserSync.reload;
 
+var svgSpitesConfig                  = {
+    "mode": {
+        "css": {
+            "dest": ".",
+            "sprite": "../images/sprite.css.svg",
+            "bust": false,
+            "render": {
+                "less": {
+                    "dest": "sprite.less"
+                }
+            }
+        }
+    }
+};
+
+gulp.task('svg', function(){
+  return gulp.src('app/images/sprites/*.svg')
+    .pipe($.plumber())
+    .pipe($.svgSprite(svgSpitesConfig))
+    .pipe(gulp.dest('app/styles'));
+});
+
 gulp.task('styles', function () {
   return gulp.src('app/styles/main.less')
     .pipe($.plumber())
